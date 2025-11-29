@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "3000:4000"
+    links: 
+      - db
+    volumes:
+      - app-images:/home/app/packages/backend/public
+    restart: always
+  db:
+    image: mysql:8
+    ports:
+      - "3307:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: Enmanuelx06.
+      MYSQL_DATABASE: ecommerce
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+volumes:
+  mysql-data:
+  app-images:

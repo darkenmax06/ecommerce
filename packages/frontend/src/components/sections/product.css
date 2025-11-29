@@ -1,0 +1,260 @@
+.modal__container{
+  width: 100%;
+  min-height: calc(100dvh - 60px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 16px;
+}
+
+.modal{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  height: 90%;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.modal__imgbox{
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  display: grid;
+  place-content: center;
+  z-index: 1;
+}
+
+.modal__imgs__container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 16px;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.modal__imgs__container::-webkit-scrollbar{
+  display: none;
+}
+
+
+.modal__imgbox img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  scroll-snap-align: center;
+  height: 100%;
+  max-height: 500px;
+}
+
+.modal__imgs__actions{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.modal__imgs__actions button {
+  padding: 8px;
+  border: none;
+  border-radius: 32px;
+  background-color: #00000093;
+  width: 40px;
+  height: 40px;
+  color: var(--primary);
+}
+
+.modal__imgs__actions button:hover{
+  background-color: #ffffffa0;
+  color: var(--black-1);
+}
+
+.modal__textbox{
+  width: 100%;
+  max-width: 550px;
+  font-family: "montserrat";
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal__target{
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: var(--silver-gradient);
+  align-self: flex-start;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white-1);
+  font-size: 12px;
+}
+
+.modal__title{
+  font-family: "cinzel";
+  font-size: 48px;
+}
+
+.modal__info{
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.modal__info>span{
+  flex: 0 0 200px;
+}
+
+
+.modal__actions{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.modal__actions button{
+  flex: 1 0 100px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  justify-content: center;
+  background-color: var(--white-1);
+}
+
+.modal__actions button:first-child{
+  background: var(--gold-gradient);
+  color: var(--white-1);
+}
+
+.comments{
+  margin-top: 32px;
+  border-top: 2px solid var(--black-1);
+}
+
+@media (width <= 800px) {
+  .modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.comments{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 0;
+}
+
+.comments__title{
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.comments__container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  padding: 8px;
+  background-color: var(--white-1);
+  border-radius: 8px;
+  gap: 16px;
+}
+
+.comment__imgbox{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.comment__imgbox > svg{
+  width: 50px;
+  height: 50px;
+}
+
+.comment__textbox{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment__title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.comments__form{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comments__form textarea{
+  resize: none;
+  border: 2px solid var(--white-2);
+  border-radius: 8px;
+  height: 150px;
+  padding: 16px;
+  outline: none;
+  font-family: "montserrat";
+  font-weight: 600;
+}
+
+.comments__form button{
+  background-color: var(--primary);
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  color: var(--white-1);
+}
+
+.comments .message{
+  text-align: center;
+  font-weight: 700;
+}
+
+.comments__modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.comments__modal a{
+  padding: 8px 16px;
+  background-color: var(--primary);
+  font-size: 16px;
+  border-radius: 8px;
+  color: var(--white-1);
+}

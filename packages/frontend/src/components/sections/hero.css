@@ -1,0 +1,80 @@
+.hero{
+    width: 100%;
+    height: 100%;
+    min-height: calc(100dvh - 60px);
+    font-family: "montserrat";
+    color: var(--white-1);
+    padding: 0px 8px;
+}
+
+.hero__container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-content: center;
+    min-height: calc(100dvh - 60px);
+}
+
+.hero__bg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    filter: brightness(.5);
+}
+
+.hero__textbox{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 64px 16px;
+}
+
+.hero__textbox img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.hero__textbox p {
+    text-shadow: 0px 0px 10px #000;
+    text-align: center;
+}
+
+.hero__textbox h2 {
+    text-shadow: 0px 0px 10px #000;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hero__textbox h1 {
+    text-shadow: 0px 0px 10px #000;
+
+    font-family: 'Cinzel';
+    line-height: 50px;
+    text-align: center;
+}
+
+.hero__btn{
+    padding: 16px 32px;
+    background-color: var(--white-1);
+    color: var(--black-2);
+    border-radius: 8px;
+    text-transform: uppercase;
+    transition: letter-spacing .3s;
+}
+
+.hero__btn:hover{
+    letter-spacing: 1px;
+}

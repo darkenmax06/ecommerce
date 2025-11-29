@@ -1,0 +1,19 @@
+GET http://localhost:4000/api/products/3
+
+# GET http://localhost:4000/api/products/
+
+# PATCH  http://localhost:4000/api/products/4
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMmY1NTA4NC0yN2QxLTRhYjgtYTRlNy1iMDM5ODQ1YTY2ZjgiLCJpYXQiOjE3NjM2NTk0NTB9.dFSN8lvt-gqhysXBlTobElfziHxo2aP1RyQ_qdDcxWo
+
+# {
+#   "title": "El producto",
+#   "description": "la descripcion",
+#   "price": "9.99",
+#   "quantity": "2222",
+#   "targetId": "1"
+# }
+
+# DELETE  http://localhost:4000/api/products/1
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhY2FkMGRmOC03NzdlLTQ0OGEtOWZlYS03MGY2NmQwYzI3OTEiLCJpYXQiOjE3NjMwNTE2NDR9.LgrRUfTI9Gye8QUILimqNyyWHJuNmDZ6OVCP_Bca-jo
+

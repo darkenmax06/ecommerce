@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "montserrat";
+  src: url("/fonts/montserrat.ttf");
+}
+
+@font-face {
+  font-family: "cinzel";
+  src: url("/fonts/Cinzel.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary: #d4af37;
+  --secondary: #838383;
+  --gold-gradient: linear-gradient(90deg,var(--primary) 0% , #d5bc6b 20% 35%,var(--primary) 70% 100%) ;
+  --silver-gradient: linear-gradient(90deg,var(--secondary) 0% , #a1a1a1 20% 35%,var(--secondary) 70% 100%) ;
+  --gold-gradient-hover: linear-gradient(90deg,var(--primary) 0% 30%, #f0d784 65% 80%,var(--primary) 100%) ;
+
+  --black-bg: #120e01;
+  --black-1: #161101;
+  --black-2: #4e4e4e;
+  --black-3: #242424;
+
+  --white-bg: #fbfaf7;
+  --white-1: #f7f5ed;
+  --white-2: #e6e3d8;
+  --white-3: #d8d3c0;
+
+  --error: #F57174;
+}
+
+body{
+  min-height: 100vh;
+  background: var(--white-bg);
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.title{
+  font-family: "cinzel";
+  font-size: 60px;
+}
+
+.subtitle{
+  font-family: "cinzel";
+  font-size: 45px;
+}
+
+.h5{
+  font-family: "montserrat";
+  font-size: 25px;
+  font-weight: 500;
+}
+
+button{
+  font-family: "montserrat";
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

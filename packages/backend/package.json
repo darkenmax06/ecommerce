@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production DEV_ENV=docker node src/server-mysql.js",
+    "dev:local": "cross-env NODE_ENV=development DEV_ENV=local nodemon src/server-mysql.js",
+    "dev:docker": "cross-env NODE_ENV=development DEV_ENV=docker nodemon src/server-mysql.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "6.0.0",
+    "cross-env": "10.1.0",
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "jsonwebtoken": "9.0.2",
+    "mercadopago": "2.10.0",
+    "morgan": "1.10.1",
+    "multer": "2.0.2",
+    "mysql2": "3.15.3",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

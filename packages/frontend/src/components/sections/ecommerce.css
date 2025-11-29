@@ -1,0 +1,108 @@
+
+
+.ecommerce{
+  padding: 128px 16px;
+  font-family: "montserrat";
+  background: inherit;
+}
+
+.ecommerce__container{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+
+.search{
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  gap: 8px;
+  box-shadow: 0px 4px 4px 0px #00000029;
+  position: relative;
+  z-index: 10;
+
+} 
+
+.search input {
+  flex: 4 0 150px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 2px solid var(--white-3);
+  font-family: "montserrat";
+  outline: none;
+  background-color: inherit;
+}
+
+.filter{
+  flex: 1 0 150px;
+  min-width: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter__selected-value{
+  border: 2px solid var(--white-3);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.filter ul{
+  position: absolute;
+  top: 45px;
+  right: 0;
+  min-width: 100px;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background-color: var(--white-bg);
+  border: 2px solid var(--white-3);
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.filter ul.active{
+  display: flex;
+}
+
+.filter li {
+  padding: 8px;
+}
+
+.filter li:hover {
+  background: var(--white-2);
+  border-radius: 4px;
+}
+
+.products__container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+/* 
+.products__container:hover .pc:not(:hover){
+  filter: blur(10px) brightness(.6);
+}
+
+.pc:hover{
+  position: relative;
+  transform: scale(1.1);
+  z-index: 10;
+} */

@@ -1,0 +1,13 @@
+GET http://localhost:4000/api/comments/1
+
+# POST  http://localhost:4000/api/comments
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZTdhMTMzNS1jOGFkLTExZjAtYjNkMi1mMzBhNTU4YmJkMTIiLCJpYXQiOjE3NjM5ODkzMTR9.KKdTP7_Nj0i-WzsDLUvyUzs-MC8D5wFSr7rYpJFBJlc
+
+# {
+#   "comment": "Es muy buen producto",
+#   "productId":1
+# }
+
+# DELETE http://localhost:4000/api/comments/3
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMmY1NTA4NC0yN2QxLTRhYjgtYTRlNy1iMDM5ODQ1YTY2ZjgiLCJpYXQiOjE3NjM1NjA0MTB9.QdZ8lb7mQ3Vvqw2nRxa25AhNEmogOfFuz8KYPlWY-MM

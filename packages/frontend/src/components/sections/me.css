@@ -1,0 +1,80 @@
+.me {
+  color: var(--white-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: "montserrat";
+}
+
+.me__container {
+  background: var(--white-bg);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.141);
+}
+
+.me__title {
+  background: var(--primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.me__personal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.me__icon svg {
+  color: var(--primary);
+  filter: drop-shadow(0 0 5px rgba(232, 206, 121, 0.5));
+}
+
+.me__data {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.me__name {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.me__item {
+  color: var(--black-bg);
+  margin: 6px 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.me__edit-btn {
+  margin-top: 20px;
+  background: var(--gold-gradient);
+  color: var(--black-bg);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.me__edit-btn:hover {
+  background: var(--gold-gradient-hover);
+  transform: scale(1.03);
+}

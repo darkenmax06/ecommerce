@@ -1,0 +1,15 @@
+POST http://localhost:4000/api/login
+Content-Type: application/json
+
+{
+  "email": "davidcctv2024@gmail.com",
+  "password": "12345678"
+}
+
+# POST http://localhost:4000/api/login
+# Content-Type: application/json
+
+# {
+#   "email": "enma@gmail.com",
+#   "password": "12345678"
+# }

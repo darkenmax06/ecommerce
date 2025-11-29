@@ -1,0 +1,30 @@
+POST http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+  "name": "Ramses",
+  "lastName": "Gonzalez",
+  "provinceId": 1,
+  "cityId": 3,
+  "street": "r1",
+  "reference": "",
+  "phone": "8295468897",
+  "email": "enma@gmail.com",
+  "password": "12345678"
+  }
+
+# PATCH http://localhost:4000/api/users
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MTkyZmM3MC1mZDg3LTQzMTgtODBjNy1iYjMwYWFiYTAxOTUiLCJpYXQiOjE3NjM4MjMzMDl9.0hvi-4WTYAOUtnB3U2KH7lm7jKHvOz-FP2vRMQ0eZpM
+
+# {
+#   "name": "Ramses",
+#   "lastName": "Gonzalez",
+#   "provinceId": 2,
+#   "cityId": 2,
+#   "street": "r1",
+#   "reference": "",
+#   "phone": "8295468897",
+#   "email": "enma@gmail.com",
+#   "password": "12345678"
+# }

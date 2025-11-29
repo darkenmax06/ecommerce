@@ -1,0 +1,31 @@
+# GET http://localhost:4000/api/orders/
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMmY1NTA4NC0yN2QxLTRhYjgtYTRlNy1iMDM5ODQ1YTY2ZjgiLCJpYXQiOjE3NjM2NjQwMjh9.rYpb7zvigHCxg7jSASf4oB6UnLGeqq9yqYLnLxWknpQ
+
+# GET http://localhost:4000/api/orders/300
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZTdhMTlkYS1jOGFkLTExZjAtYjNkMi1mMzBhNTU4YmJkMTIiLCJpYXQiOjE3NjM5MzExNjZ9.rWJX9AA-Lw5a6rLieZDZ_MuXc6475-KJxuRRB-lmC3U
+
+# GET http://localhost:4000/api/orders/users
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZTdhMTMzNS1jOGFkLTExZjAtYjNkMi1mMzBhNTU4YmJkMTIiLCJpYXQiOjE3NjM5MzMyOTV9.fGAdCpPo2B9ql3Y5rvmX2DoZG-g1XtzycNjWCM0t3SY
+
+POST http://localhost:4000/api/orders/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZTdhMTMzNS1jOGFkLTExZjAtYjNkMi1mMzBhNTU4YmJkMTIiLCJpYXQiOjE3NjM5MzMyOTV9.fGAdCpPo2B9ql3Y5rvmX2DoZG-g1XtzycNjWCM0t3SY
+
+{
+  "products": [{
+    "quantity": 1,
+    "productId": 1
+  }]
+}
+
+# PATCH http://localhost:4000/api/orders/2
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZTdhMTMzNS1jOGFkLTExZjAtYjNkMi1mMzBhNTU4YmJkMTIiLCJpYXQiOjE3NjM5MzMyOTV9.fGAdCpPo2B9ql3Y5rvmX2DoZG-g1XtzycNjWCM0t3SY
+
+# {
+#   "statusId": 2
+# }
+
+# DELETE  http://localhost:4000/api/products/1
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhY2FkMGRmOC03NzdlLTQ0OGEtOWZlYS03MGY2NmQwYzI3OTEiLCJpYXQiOjE3NjMwNTE2NDR9.LgrRUfTI9Gye8QUILimqNyyWHJuNmDZ6OVCP_Bca-jo
+

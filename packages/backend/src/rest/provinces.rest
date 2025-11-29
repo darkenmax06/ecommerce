@@ -1,0 +1,11 @@
+# GET http://localhost:4000/api/provinces/
+
+GET http://localhost:4000/api/provinces/Buenos%20Aires
+
+# PATCH http://localhost:4000/api/provinces/1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0YThmOTRlOC1jN2M1LTExZjAtOTYwZS1kNDZkNmQ2ZmEzMjMiLCJpYXQiOjE3NjM4MzEyOTF9.0pO69Epe2xHdHZf8gJYCYiH_TRDD0tHJ4Zht-xV8ANw
+
+# {
+#   "price": 400
+# }

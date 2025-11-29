@@ -1,0 +1,105 @@
+.pc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-width: 330px;
+  position: relative;
+  padding: 8px;
+  box-shadow: 0px 10px 4px 0px #00000011;
+  border-radius: 8px;
+  font-family: "montserrat";
+}
+
+.pc__imgbox{
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 8px;
+  position: relative;
+}
+
+.pc__imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pc__target{
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background-color: var(--white-1);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.pc__textbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 4px;
+}
+
+.pc__textbox p {
+  height: 100%;
+  max-height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pc__textbox p::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,var(--white-bg) ,transparent);
+}
+
+.pc__price{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pc__title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pc__actions{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+}
+
+.pc__action{
+  width: 100%;
+  background-color: var(--primary);
+  background: var(--gold-gradient);
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--white-1);
+  font-family: "montserrat";
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pc__action:not(.disabled):hover{
+  background: var(--gold-gradient-hover);
+}
+
+.pc__action.disabled{
+  background: var(--white-2);
+  color: var(--black-3);
+}
+
+.pc__info{
+  display: flex;
+  justify-content: space-between;
+}

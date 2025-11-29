@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "npm run build --workspace=frontend && npm run start --workspace=backend",
+    "dev": "concurrently \"npm run dev --workspace=frontend\" \"npm run dev:local --workspace=backend\" ",
+    "dev:docker": "concurrently \"npm run dev --workspace=frontend\" \"npm run dev:docker --workspace=backend\" ",
+    "build:app": "npm run build --workspace=frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "9.2.1"
+  }
+}

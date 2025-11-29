@@ -1,0 +1,80 @@
+.orders{
+  padding: 64px 16px;
+  width: 100%;
+  min-height: calc(100dvh - 60px);
+}
+
+.orders__container{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.orders__title{
+  font-family: "cinzel";
+  font-size: 40px;
+}
+
+.or__container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  gap: 16px;
+}
+
+.order{
+  width: 100%;
+  gap: 8px;
+  font-family: "montserrat";
+  width: 100%;
+  padding: 8px;
+  background-color: var(--white-1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order__title{
+  font-size: 20px;
+}
+
+.order__info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.order__target{
+  padding: 4px;
+  border-radius: 4px;
+  background: var(--silver-gradient);
+  font-weight: 600;
+  color: var(--white-1);
+}
+
+.order__status{
+  padding: 4px;
+  border-radius: 4px;
+  background: #d1e2145a;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.order__status.delivered{
+  background: #48ff005f;
+}
+
+.order__status.inway{
+  background: #ffb3005f;
+}
+
+.order__status.instore{
+  background: #ddff005f;
+}

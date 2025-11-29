@@ -1,0 +1,291 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=1",
+        "https://picsum.photos/300/200?random=101",
+        "https://picsum.photos/300/200?random=102"
+      ],
+      "title": "Auriculares Bluetooth",
+      "target": "audio",
+      "content": "Auriculares inalámbricos con cancelación de ruido y batería de larga duración.",
+      "price": 49.99,
+      "comments": [
+        {
+          "user": "CarlosM",
+          "text": "El sonido es excelente, la batería dura muchísimo."
+        },
+        {
+          "user": "Lau89",
+          "text": "Muy cómodos, se conectan rápido al celular."
+        },
+        {
+          "user": "TechLeo",
+          "text": "Buena relación calidad/precio."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=2",
+        "https://picsum.photos/300/200?random=202"
+      ],
+      "title": "Smartwatch Deportivo",
+      "target": "wearable",
+      "content": "Reloj inteligente con monitoreo cardíaco y GPS integrado.",
+      "price": 89.99,
+      "comments": [
+        {
+          "user": "NicoFit",
+          "text": "Perfecto para entrenar, mide bien las pulsaciones."
+        },
+        {
+          "user": "ValeTech",
+          "text": "El GPS funciona muy bien, batería de 3 días aprox."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=3",
+        "https://picsum.photos/300/200?random=301",
+        "https://picsum.photos/300/200?random=302",
+        "https://picsum.photos/300/200?random=303"
+      ],
+      "title": "Cámara 4K Compacta",
+      "target": "fotografía",
+      "content": "Cámara de acción con resolución 4K y estabilización avanzada.",
+      "price": 129.99,
+      "comments": [
+        {
+          "user": "LuchoPro",
+          "text": "Ideal para grabar viajes, se ve genial."
+        },
+        {
+          "user": "AnaPhoto",
+          "text": "Buena calidad de imagen pero el micrófono podría ser mejor."
+        },
+        {
+          "user": "PabloTrips",
+          "text": "Resiste bien el agua y las caídas."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=4",
+        "https://picsum.photos/300/200?random=401",
+        "https://picsum.photos/300/200?random=402",
+        "https://picsum.photos/300/200?random=403",
+        "https://picsum.photos/300/200?random=404"
+      ],
+      "title": "Teclado Mecánico RGB",
+      "target": "gaming",
+      "content": "Teclado mecánico con luces RGB personalizables y switches táctiles.",
+      "price": 69.99,
+      "comments": [
+        {
+          "user": "GamerPro",
+          "text": "Los switches se sienten de lujo, y el RGB es potente."
+        },
+        {
+          "user": "MatiK",
+          "text": "Excelente para jugar FPS, respuesta rápida."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=5"
+      ],
+      "title": "Mouse Inalámbrico",
+      "target": "accesorio",
+      "content": "Mouse ergonómico con sensor óptico de alta precisión.",
+      "price": 24.99,
+      "comments": [
+        {
+          "user": "Fede",
+          "text": "Liviano y preciso, ideal para trabajo de oficina."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=6",
+        "https://picsum.photos/300/200?random=602"
+      ],
+      "title": "Laptop Ultrabook",
+      "target": "computadora",
+      "content": "Ultrabook ligera con pantalla Full HD y SSD de 512 GB.",
+      "price": 899.99,
+      "comments": [
+        {
+          "user": "Clara",
+          "text": "Muy rápida y silenciosa, ideal para trabajar."
+        },
+        {
+          "user": "Rodrigo",
+          "text": "El diseño es fino y elegante, vale la pena."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=7",
+        "https://picsum.photos/300/200?random=701"
+      ],
+      "title": "Tablet 10 pulgadas",
+      "target": "dispositivo",
+      "content": "Tablet Android con pantalla de alta resolución y 128 GB de almacenamiento.",
+      "price": 199.99,
+      "comments": [
+        {
+          "user": "MaruTech",
+          "text": "Buena pantalla, ideal para leer y ver series."
+        },
+        {
+          "user": "Seba",
+          "text": "Rápida para lo que cuesta, la batería rinde."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=8",
+        "https://picsum.photos/300/200?random=801",
+        "https://picsum.photos/300/200?random=802"
+      ],
+      "title": "Parlante Portátil",
+      "target": "audio",
+      "content": "Altavoz Bluetooth resistente al agua con sonido estéreo y micrófono integrado.",
+      "price": 59.99,
+      "comments": [
+        {
+          "user": "Juancho",
+          "text": "El sonido es fuerte y los bajos pegan duro."
+        },
+        {
+          "user": "Tami",
+          "text": "Perfecto para la playa o la pileta."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=9",
+        "https://picsum.photos/300/200?random=901",
+        "https://picsum.photos/300/200?random=902",
+        "https://picsum.photos/300/200?random=903",
+        "https://picsum.photos/300/200?random=904"
+      ],
+      "title": "Monitor 27'' Curvo",
+      "target": "pantalla",
+      "content": "Monitor curvo Full HD con tasa de refresco de 144 Hz.",
+      "price": 249.99,
+      "comments": [
+        {
+          "user": "EzeGamer",
+          "text": "La curvatura es cómoda para los ojos."
+        },
+        {
+          "user": "LucasP",
+          "text": "Excelente para gaming, el color es nítido."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "imgUri": [
+        "https://picsum.photos/300/200?random=10",
+        "https://picsum.photos/300/200?random=1001",
+        "https://picsum.photos/300/200?random=1002"
+      ],
+      "title": "Cargador Inalámbrico",
+      "target": "accesorio",
+      "content": "Cargador rápido compatible con dispositivos Qi y carcasa magnética.",
+      "price": 39.99,
+      "comments": [
+        {
+          "user": "Lina",
+          "text": "Carga rápido incluso con funda."
+        },
+        {
+          "user": "Franco",
+          "text": "Buen producto, aunque se calienta un poco."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "content": "audio"
+    },
+    {
+      "id": 2,
+      "content": "wearable"
+    },
+    {
+      "id": 3,
+      "content": "fotografía"
+    },
+    {
+      "id": 4,
+      "content": "gaming"
+    },
+    {
+      "id": 5,
+      "content": "accesorio"
+    },
+    {
+      "id": 6,
+      "content": "computadora"
+    },
+    {
+      "id": 7,
+      "content": "dispositivo"
+    },
+    {
+      "id": 8,
+      "content": "pantalla"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "imgUri": "https://picsum.photos/300/200?random=1",
+      "title": "Auriculares Bluetooth",
+      "target": "audio",
+      "price": 49.99,
+      "quantity": 2,
+      "status": "por-enviar"
+    },
+    {
+      "id": 2,
+      "imgUri": "https://picsum.photos/300/200?random=1",
+      "title": "Auriculares Bluetooth",
+      "target": "audio",
+      "price": 49.99,
+      "quantity": 2,
+      "status": "entregado"
+    },
+    {
+      "id": 3,
+      "imgUri": "https://picsum.photos/300/200?random=1",
+      "title": "Auriculares Bluetooth",
+      "target": "audio",
+      "price": 49.99,
+      "quantity": 2,
+      "status": "en-camino"
+    }
+  ]
+}

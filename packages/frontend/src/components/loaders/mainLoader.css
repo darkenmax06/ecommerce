@@ -1,0 +1,21 @@
+.loader__container{
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+
+.loader{
+  width: 100px;
+  height: 100px;
+  border: 5px solid var(--white-2);
+  border-top: 5px solid var(--primary);
+  animation: spin 1.2s infinite linear;
+  border-radius: 50px;
+}
+
+@keyframes spin {
+  from {transform:  rotateZ(0deg);}
+  to {transform:  rotateZ(360deg);}
+}

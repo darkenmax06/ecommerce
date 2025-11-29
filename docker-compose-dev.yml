@@ -1,0 +1,29 @@
+services:
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:4000"
+      - "5173:5173"
+    volumes:
+      - .:/home/app   # montas el monorepo entero
+      - /home/app/node_modules  # evita borrar node_modules del contenedor
+      - app-images:/home/app/packages/backend/public
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: Enmanuelx06.
+      MYSQL_DATABASE: ecommerce
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./packages/backend/src/ecommerce.sql:/docker-entrypoint-initdb.d/db.sql
+
+volumes:
+  mysql-data:
+  app-images:

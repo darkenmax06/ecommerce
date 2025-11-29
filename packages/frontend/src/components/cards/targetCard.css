@@ -1,0 +1,39 @@
+.tc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--white-1);
+  border-radius: 8px;
+}
+
+.tc__title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tc__actions{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.tc__action{
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  border: none;
+  padding: 4px;
+  border-radius: 8px;
+  color: var(--white-1);
+  font-family: "montserrat";
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.tc__action.disabled{
+  background-color: var(--white-2);
+  color: var(--black-3);
+}

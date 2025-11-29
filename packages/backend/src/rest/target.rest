@@ -1,0 +1,22 @@
+GET http://localhost:4000/api/targets/2
+
+
+# POST http://localhost:4000/api/targets
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMmY1NTA4NC0yN2QxLTRhYjgtYTRlNy1iMDM5ODQ1YTY2ZjgiLCJpYXQiOjE3NjMwODQ2NDR9.BfqWwPuGSYGXimn8iUGSG3vGiq4Nz5gBxWbU1wZBWj0
+
+# {
+#   "target": "ropa de Hombres"
+# }
+
+
+# PATCH  http://localhost:4000/api/targets/1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ZDc4MzEzZS1kOTU0LTQxOGMtOGQ1MS05ODhhZTA5ZjRmNjEiLCJpYXQiOjE3NjMwMDkxMjN9.XadvWsLqX_e3L34Og70zfgSjq9a8SMHv1-ncT5BX3_k
+
+# {
+#   "target": "ropa de personas"
+# }
+
+# DELETE  http://localhost:4000/api/targets/1
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhY2FkMGRmOC03NzdlLTQ0OGEtOWZlYS03MGY2NmQwYzI3OTEiLCJpYXQiOjE3NjMwNTE2NDR9.LgrRUfTI9Gye8QUILimqNyyWHJuNmDZ6OVCP_Bca-jo
