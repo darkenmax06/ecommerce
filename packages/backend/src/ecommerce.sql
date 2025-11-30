@@ -44,7 +44,7 @@ CREATE TABLE Targets (
 
 
 CREATE TABLE Products (
-	productId INT PRIMARY KEY NOT NULL,
+	productId INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     description VARCHAR(300) NOT NULL,
     targetId INT NOT NULL,

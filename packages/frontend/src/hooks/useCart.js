@@ -1,12 +1,16 @@
-import { useContext, useEffect, useMemo, useState } from "react"
-import { cartContext } from "../context/cartContext"
+import { useEffect, useMemo, useState } from "react"
+
 import { roundDecimals } from "../utils/roundDecimals"
 import useUser from "./useUser"
 import { gerProvinceByName } from "../services/addressServices"
+import useCartStorage from "./zustand/useCartStore"
 
 
 function useCart (){
-  const {cart,addItem,decreaseQuantity,increaseQuantity} = useContext(cartContext)
+  const cart = useCartStorage((state) => state.cart);
+  const addItem = useCartStorage((state) => state.addItem);
+  const decreaseQuantity = useCartStorage((state) => state.decreaseQuantity);
+  const increaseQuantity = useCartStorage((state) => state.increaseQuantity);
   const [shippingPrice,setShippingPrice] = useState(null)
   const {user} = useUser()
 

@@ -1,17 +1,18 @@
-import { MoveRight } from "lucide-react"
 import "./loginForm.css"
 import useUser from "../../hooks/useUser"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-
+import ErrorAlert from "../inputAlerts/ErrorAlert"
+import { MoveRight } from "lucide-react"
+import ButtonLoader from "../loaders/ButtonLoader"
 
 function LoginForm () {
+  const {loginUser,error,loading,clearError} = useUser()
   const [user,setUser] = useState({
     email: "",
     password: ""
   })
 
-  const {loginUser,error,loading} = useUser()
 
   const handleForm = e => {
     e.preventDefault()
@@ -21,12 +22,7 @@ function LoginForm () {
   const handleChange = e => {
     const {value,name} = e.target
 
-    setUser(prev => {
-      return {
-        ...prev,
-        [name]: value
-      }
-    })
+    setUser(prev => ({...prev, [name]: value} ))
   }
 
   return (
@@ -38,13 +34,13 @@ function LoginForm () {
           <input type="password" placeholder="password" name="password" className="login__input" value={user.password} onChange={handleChange} />
         </div>
 
-        {error && error}
+        {error && <ErrorAlert error={error} clearError={clearError} /> }
 
         <button className="login__button">
           Iniciar sesion
           {
             loading
-            ? "..."
+            ? <ButtonLoader/>
             :  <MoveRight/>
           }
         </button>

@@ -3,6 +3,7 @@ import { Route, Routes,Navigate } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import useUser from './hooks/useUser'
 import MainLoader from './components/loaders/MainLoader'
+import NotFoundPage from './Pages/NotFoundPage'
 const EditProducts = lazy(()=> import("./Pages/EditProducts"))
 const Signin = lazy(()=> import("./Pages/Signin"))
 const Login = lazy(()=> import("./Pages/Login"))
@@ -52,6 +53,7 @@ function App() {
         <Route path='/myorders' element={user ? <Orders/> : <Navigate to="/" /> } />
         <Route path='/myorders/:orderId' element={user ? <Order/> : <Navigate to="/" /> } />
 
+        <Route path='*' element={ <NotFoundPage /> } />
         
       </Routes>
     </Suspense>

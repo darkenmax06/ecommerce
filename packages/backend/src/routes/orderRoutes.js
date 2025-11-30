@@ -55,25 +55,25 @@ function OrderRoutes({ orderModel, userModel }) {
     }
   })
 
-  router.post("/webhook-mp", async (req,res,next)=>{
-    const payment = req.body
+  router.post("/webhook-mp", async (req, res) => {
+    const payment = req.body;
 
-    console.log({payment})
+    if (payment.type !== "payment") return res.sendStatus(200);
 
-    const orderId = payment.data.metadata.orderId
+    const details = await mp.payment.get({ id: payment.data.id });
 
-    if (!orderId) return res.sendStatus(200)
+    if (details.status === "approved") {
 
-    if (payment.type === "payment") {
-      const details = await mp.payment.get({ id: payment.data.id })
+      const buyerId = details.metadata.buyerId;
+      const products = JSON.parse(details.metadata.products);
 
-      if (details.status !== "approved") {
-        await orderModel.deleteOrder(orderId) // ❌ eliminar order + OrderProducts
-      }
+      await orderModel.createOrder({ buyerId, products });
+
+      return res.sendStatus(200);
     }
 
-    res.sendStatus(200)
-  })
+    return res.sendStatus(200);
+  });
 
   router.get("/:orderId" ,async (req,res,next) => {
     const {orderId} = req.params
@@ -124,6 +124,7 @@ function OrderRoutes({ orderModel, userModel }) {
       if (!user) return next({name:"INVALID_USER_ID"})
 
       const Order = await orderModel.createOrder({buyerId: verify.userId,products})
+      await orderModel.deleteOrder(Order.orderId)
       // Integracion con mercado pago!
       const client = new MercadoPagoConfig({accessToken});
       const preference = new Preference(client);
@@ -155,7 +156,10 @@ function OrderRoutes({ orderModel, userModel }) {
             success,
             failure
           },
-          metadata: {orderId: Order.orderId},
+          metadata: {
+            buyerId: verify.userId,
+            products: JSON.stringify(products)
+          },
           notification_url: "http://localhost:4000/api/orders/webhook-mp"
         }
       });

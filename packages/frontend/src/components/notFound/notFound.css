@@ -1,0 +1,40 @@
+.nf {
+  display: grid;
+  place-content: center;
+  font-family: "montserrat";
+  padding: 64px 16px;
+  height: 100%;
+  min-height: calc(100dvh - 60px);
+}
+
+.nf__container{
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.nf__container img{
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}
+
+.nf__container p{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nf__container p a {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}

@@ -6,9 +6,17 @@ async function getProducts (){
   return result
 }
 
+
+
 async function getProduct ({productId}){
   const uri = `${URI}/${productId}` 
   const res = await fetch(uri)
+
+  if (!res.ok){
+    const {error} = await res.json()
+    throw error
+  }
+
   const result = res.json()
   return result
 }

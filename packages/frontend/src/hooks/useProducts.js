@@ -53,6 +53,7 @@ function validateProduct({ title, description, quantity, price, target,showError
 function useProducts ({category = "Todos",title = "",productId = null,getAll = true} = {}){
   const [products,setProducts] = useState(null)
   const [product,setProduct] = useState(null)
+  const [loading,setLoading] = useState(true)
   const [error,setError] = useState(null)
   const navigate = useNavigate()
   const {tags} = useTags()
@@ -82,6 +83,8 @@ function useProducts ({category = "Todos",title = "",productId = null,getAll = t
           setProduct(result)
         } catch (err){
           console.error("error", err)
+        } finally {
+          setLoading(false)
         }
       }
     }
@@ -178,7 +181,8 @@ function useProducts ({category = "Todos",title = "",productId = null,getAll = t
     editProducts,
     createProduct,
     error,
-    deleteProducts
+    deleteProducts,
+    loading
   }
 }
 

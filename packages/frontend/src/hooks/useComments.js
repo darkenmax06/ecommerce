@@ -13,8 +13,8 @@ function useComments ({loadComments = true,productId} = {}) {
   const showError = err => setError(err)
 
   useEffect(()=> {
-    const load = async ()=> {
-      if (loadComments){
+    if (loadComments){
+      const load = async ()=> {
         try {
           const result = await getByProduct({productId})
           console.log(result)
@@ -23,9 +23,10 @@ function useComments ({loadComments = true,productId} = {}) {
           console.log(err)
         }
       }
+
+      load()
     }
 
-    load()
   },[loadComments,productId])
 
 
@@ -42,12 +43,12 @@ function useComments ({loadComments = true,productId} = {}) {
     }
   }
 
-  console.log("comments", comments)
 
   return {
     comments,
     createComment,
-    error
+    error,
+    clearError
   }
 }
 

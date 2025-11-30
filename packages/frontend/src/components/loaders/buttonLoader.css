@@ -1,0 +1,14 @@
+.button__loader{
+  width: 25px;
+  height: 25px;
+  border: 2px solid #909090;
+  border-top: 3px solid var(--black-1);
+  border-radius: 13px;
+  animation: buttonLoaderSpin 1s linear infinite;
+}
+
+
+@keyframes buttonLoaderSpin {
+  from {transform:  rotateZ(0deg);}
+  to {transform: rotateZ(360deg);}
+}

@@ -1,0 +1,52 @@
+
+
+
+.ia {
+  display: grid;
+  grid-template-columns: 50px 1fr 40px;
+  padding: 8px;
+  border-radius: 8px;
+  gap: 8px;
+  justify-items: center;
+  align-items: center;
+}
+
+.ia button{
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+.ia button svg{
+  color: inherit;
+}
+
+.ia p{
+  text-align: start;
+  color: var(--black-1);
+}
+
+.ia.blue{
+  background-color: rgba(68, 136, 238,.4);
+  color: rgb(13, 76, 169);
+}
+
+.ia.red{
+  background-color: rgba(238, 68, 68, 0.4);
+  color: rgb(169, 13, 13);
+}
+
+.ia.purple{
+  background-color: rgba(210, 68, 238, 0.4);
+  color: rgb(141, 13, 130);
+}
+
+.ia.yellow{
+  background-color: rgba(238, 215, 68, 0.4);
+  color: rgb(171, 149, 7);
+}
+
+.ia.green{
+  background-color: rgba(68, 238, 74, 0.4);
+  color: rgb(7, 171, 32);
+}

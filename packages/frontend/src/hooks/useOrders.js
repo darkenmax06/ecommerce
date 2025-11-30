@@ -12,29 +12,28 @@ function useOrders ({loadOrders = true,orderId} ={}){
   const showError = err => setError(err)
 
   useEffect(()=> {
-    const load = async ()=> {
-      const {token} = user
-      if (loadOrders){
-        try {
-          let result = null
-          if (user.type == "buyer") result = await getOrders({token})
-          else  result = await getAllorders({token})
-          setOrders(result)
-        } catch (err ){
-          console.log(err)
-        }
-      } else if (orderId){
-        try{
-          const order = await getByOrderId({orderId,token})
-          setOrder(order)
-        }catch (err){
-          console.log(err)
-        }
-      }
+    const {token} = user
+
+    const loadOrder = async () => {
+      try {
+        let result = null
+        if (user.type == "buyer") result = await getOrders({token})
+        else  result = await getAllorders({token})
+        setOrders(result)
+      } catch (err) {console.log(err)}
     }
 
-    load()
-  },[user,orderId])
+    const loadByOrderId = async () => {
+      try{
+        const order = await getByOrderId({orderId,token})
+        setOrder(order)
+      }catch (err){console.log(err)}
+    }
+
+    if (loadOrders) loadOrder() 
+    else if (orderId) loadByOrderId
+
+  },[user,orderId,loadOrders])
 
   const updateOrder = async ({orderId, statusId}) => {
     try {
@@ -60,6 +59,8 @@ function useOrders ({loadOrders = true,orderId} ={}){
       showError(err)
     }
   }
+
+  console.log("order")
 
   return {
     orders,

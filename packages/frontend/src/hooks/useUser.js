@@ -1,10 +1,10 @@
-import { useContext, useState } from "react"
-import {userContext} from "../context/userContext"
+import { useState } from "react"
 import {useNavigate} from "react-router-dom"
 import {login} from "../services/loginServices.js"
 import { Update,create } from "../services/userServices.js";
 import { useEffect } from "react";
 import {gerProvinceByName} from "../services/addressServices.js"
+import useUserStore from "./zustand/useUserStore.js";
 
 function cleanAndValidatePhoneNumber(rawNumber, showError) {
     const cleanedNumber = rawNumber.replace(/[()\-\s]/g, '');
@@ -99,7 +99,9 @@ function validateLogin({  password, email, showError }) {
 }
 
 function useUser () {
-  const {user,saveUser,logoutUser} = useContext(userContext)  
+  const user = useUserStore((state)=> state.user)
+  const saveUser = useUserStore((state)=> state.saveUser)
+  const logoutUser = useUserStore((state)=> state.logoutUser)
   const [loading,setLoading] = useState(false)
   const [shippingPrice,setShippingPrice] = useState(null)
   const [error,setError] = useState(null)
@@ -179,7 +181,10 @@ function useUser () {
     clearError()
     setLoading(true)
     const isValidData = validateLogin({email,password,showError})
-    if (!isValidData) return null
+    if (!isValidData) {
+      setLoading(false)
+      return null
+    }
 
     try {
       const user = await login({email,password})
@@ -201,7 +206,8 @@ function useUser () {
     loginUser,
     login,
     loading,
-    shippingPrice
+    shippingPrice,
+    clearError
   }
 }
 

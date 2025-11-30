@@ -212,8 +212,11 @@ class Orders {
       [orderId]
     )
 
+    console.log(products)
+
     for (let p of products) {
-      await conn.query(
+      console.log(p)
+      await this.connection.query(
         "UPDATE Products SET quantity = quantity + ? WHERE productId = ?",
         [p.quantity, p.productId]
       )
