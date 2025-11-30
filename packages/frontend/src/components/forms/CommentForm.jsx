@@ -1,8 +1,11 @@
 import { useState } from "react"
 import ErrorAlert from "../inputAlerts/ErrorAlert"
+import useComments from "../../hooks/useComments"
+import { ArrowRight } from "lucide-react"
+import ButtonLoader from "../loaders/ButtonLoader"
 
-
-function CommentForm ({createComment,productId,error,clearError}) {
+function CommentForm ({productId}) {
+  const {createComment,error,clearError,loading} = useComments({productId})
   const [comment,setComment] = useState("")
 
   const handleChange = e => setComment(e.target.value)
@@ -22,7 +25,7 @@ function CommentForm ({createComment,productId,error,clearError}) {
         maxLength={200} 
       ></textarea>
       {error && <ErrorAlert error={error} clearError={clearError} />}
-      <button>Enviar</button>
+      <button>Enviar { loading ? <ButtonLoader/> : <ArrowRight/>  } </button>
     </form>
   )
 }

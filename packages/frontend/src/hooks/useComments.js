@@ -1,43 +1,47 @@
 import { useEffect, useState } from "react";
 import { create, getByProduct } from "../services/commentsServices";
 import useUser from "./useUser";
-
-
+import useCommentStore from "./zustand/useCommentsStore";
 
 function useComments ({loadComments = true,productId} = {}) {
-  const [comments,setComments] = useState(null)
+  const comments = useCommentStore((state)=> state.comments)
+  const updateComments = useCommentStore((state)=> state.updateComments)
   const [error,setError] = useState(null)
+  const [loading,setLoading] = useState(false)
   const {token} = useUser()
 
   const clearError = () => setError()
   const showError = err => setError(err)
 
   useEffect(()=> {
-    if (loadComments){
-      const load = async ()=> {
-        try {
-          const result = await getByProduct({productId})
-          setComments(result)
-        } catch(err){
-          console.log(err)
-        }
+    const load = async ()=> {
+      setLoading(true)
+      try {
+        const result = await getByProduct({productId})
+        updateComments(result)
+      } catch(err){
+        console.log(err)
+      } finally {
+        setLoading(false)
       }
-
-      load()
     }
 
+    if (!loadComments) return null
+    else load()
   },[loadComments,productId])
 
 
   const createComment = async ({comment,productId,clearInput}) => {
     clearError()
-
+    setLoading(true)
     try {
       const result = await create({comment,token,productId})
-      setComments([...comments,result])
+      updateComments([...comments,result])
       clearInput()
     }catch(err){
       showError(err)
+    } finally{
+      setLoading(false)
     }
   }
 
@@ -46,7 +50,8 @@ function useComments ({loadComments = true,productId} = {}) {
     comments,
     createComment,
     error,
-    clearError
+    clearError,
+    loading
   }
 }
 

@@ -6,22 +6,15 @@ import useAddress from "../../hooks/useAddress"
 import useUser from "../../hooks/useUser"
 import Select from "./Select"
 import { Link } from "react-router-dom"
+import ErrorAlert from "../inputAlerts/ErrorAlert"
+import ButtonLoader from "../loaders/ButtonLoader"
 
 const userSchema = {
-    name: "",
-    lastName: "",
-    cityId: "",
-    provinceId: "",
-    street: "",
-    reference: "",
-    phone: "",
-    email: "",
-    password: "",
-    confirmPassword: ""
-  }
+  name: "", lastName: "", cityId: "", provinceId: "", street: "", reference: "", phone: "", email: "", password: "", confirmPassword: ""
+}
 
 function SigninForm ({userData}) {
-  const {createUser,error,updateUser} = useUser()
+  const {createUser,error,updateUser,loading,clearError} = useUser()
   const {cities,provinces,updateCity,updateProvince,province,city} = useAddress({province: userData?.province, city: userData?.city})
   const [data,setData] = useState(()=> userData ?? {...userSchema, confirmPassword: userSchema.password})
 
@@ -38,19 +31,21 @@ function SigninForm ({userData}) {
       setData(prev => ({...prev, [name]: id }))
 
     } else {
-      setData(prev => ({...prev, [name]: value      }))
+      setData(prev => ({...prev, [name]: value }))
     }
   }
 
   const handleSubmit = e => {
     e.preventDefault()
 
+    if(loading) return null
+
     if (userData) updateUser(data)
     else createUser(data)
   }
 
-  const Sign = ()=>  <> Crear cuenta <MoveRight/> </> 
-  const Edith = ()=>  <> Editar perfil <Edit/> </> 
+  const Sign = ()=>  <> Crear cuenta {loading ? <ButtonLoader/> : <MoveRight/>} </> 
+  const Edith = ()=>  <> Editar perfil {loading ? <ButtonLoader/>: <Edit/>} </> 
 
 
   return (
@@ -169,7 +164,7 @@ function SigninForm ({userData}) {
           </div>
         </div>
 
-        {error && <p>{error}</p>}
+        {error && <ErrorAlert error={error} clearError={clearError} />}
 
         <button className="signin__button">
           {

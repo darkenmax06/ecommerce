@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react"
-
 import { roundDecimals } from "../utils/roundDecimals"
 import useUser from "./useUser"
 import { gerProvinceByName } from "../services/addressServices"
@@ -7,10 +6,11 @@ import useCartStorage from "./zustand/useCartStore"
 
 
 function useCart (){
-  const cart = useCartStorage((state) => state.cart);
-  const addItem = useCartStorage((state) => state.addItem);
-  const decreaseQuantity = useCartStorage((state) => state.decreaseQuantity);
-  const increaseQuantity = useCartStorage((state) => state.increaseQuantity);
+  const cart = useCartStorage((state) => state.cart)
+  const addItem = useCartStorage((state) => state.addItem)
+  const decreaseQuantity = useCartStorage((state) => state.decreaseQuantity)
+  const increaseQuantity = useCartStorage((state) => state.increaseQuantity)
+
   const [shippingPrice,setShippingPrice] = useState(null)
   const {user} = useUser()
 
@@ -30,7 +30,6 @@ function useCart (){
       load()
     }
   },[user])
-
 
   const isAdded = (id) => {
     if (!cart) return false

@@ -38,8 +38,13 @@ function useUser () {
 
   const createUser = async (user) => {
     clearError()
+    setLoading(true)
     const isValidUser = validateUser({...user,showError})
-    if (!isValidUser) return null
+
+    if (!isValidUser) {
+      setLoading(false)
+      return null
+    }
 
     const trimmedUser = Object.fromEntries(
       Object.entries(user)
@@ -57,6 +62,8 @@ function useUser () {
     }catch(err){
       console.log(err)
       showError(err)
+    } finally{
+      setLoading(false)
     }
   }
 
@@ -64,7 +71,10 @@ function useUser () {
     setLoading(true)
     clearError()
     const isValidUser = validateUser({...user,showError})
-    if (!isValidUser) return null
+    if (!isValidUser) {
+      setLoading(false)
+       return null
+    }
 
     const trimmedUser = Object.fromEntries(
       Object.entries(user)

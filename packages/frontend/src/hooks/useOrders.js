@@ -7,6 +7,7 @@ function useOrders ({loadOrders = true,orderId} ={}){
   const [orders,setOrders] = useState(null)
   const [order,setOrder] = useState(null)
   const [error,setError] = useState(null)
+  const [loading,setLoading] = useState(false)
 
   const clearError = () => setError(null)
   const showError = err => setError(err)
@@ -50,16 +51,21 @@ function useOrders ({loadOrders = true,orderId} ={}){
 
   const createOrder = async (products) => {
     clearError()
-    if (!products) return showError("Deben haber productos para realizar esta accion")
+    setLoading(false)
 
-      console.log({products})
+    if (!products) {
+      setLoading(true)
+      return showError("Deben haber productos para realizar esta accion")
+    }
 
     try {
       const {token} = user
       const result = await buyItem({products, token})
+      setLoading(true)
       window.location.href = result.url;
     } catch (err) {
       showError(err)
+      setLoading(true)
     }
   }
 
@@ -68,7 +74,8 @@ function useOrders ({loadOrders = true,orderId} ={}){
     order,
     updateOrder,
     createOrder,
-    error
+    error,
+    loading
   }
 }
 

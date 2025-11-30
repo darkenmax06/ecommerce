@@ -8,11 +8,12 @@ import ImageCarrousel from "../elements/ImageCarrousel"
 import Comment from "../elements/Comment"
 import LoginMessage from "../messages/LoginMessage"
 import useComments from "../../hooks/useComments"
+import ButtonLoader from "../loaders/ButtonLoader"
 
 function Product ({imgUris,title,description,price,productId,target,quantity}){
-  const {comments,createComment,error,clearError} = useComments({productId})
+  const {comments} = useComments({productId})
   const {addToCart,isAdded} = useCart()
-  const {createOrder} = useOrders({loadOrders: false})
+  const {createOrder,loading} = useOrders({loadOrders: false})
   const {user,shippingPrice} = useUser()
 
 
@@ -25,11 +26,11 @@ function Product ({imgUris,title,description,price,productId,target,quantity}){
   const ForAdd = () => (<> Anadir  <ShoppingCart/></>) 
 
   const handleBuy = () =>  {
+    if (loading) return null
     const productToBuy = [{productId,quantity: 1}]
     createOrder(productToBuy)
   }
   
-
   return (
     <div className="modal__container">
       <div className="modal">
@@ -43,7 +44,7 @@ function Product ({imgUris,title,description,price,productId,target,quantity}){
           <span className="modal__target" >{target}</span>
           <p>{description}</p>
           <div className="modal__actions">
-            <button onClick={handleBuy} > Comprar ahora <DollarSign/> </button>
+            <button onClick={handleBuy} > Comprar ahora {loading ?<ButtonLoader/> :<DollarSign/>}  </button>
             <button onClick={handleAdd} >
               {
                 isAdded(productId)
@@ -61,7 +62,7 @@ function Product ({imgUris,title,description,price,productId,target,quantity}){
             </h3>
 
             {user
-              ? <CommentForm error={error} createComment={createComment} productId={productId} clearError={clearError} />
+              ? <CommentForm productId={productId} />
               : <LoginMessage/>}
 
             <div className="comments__container">
