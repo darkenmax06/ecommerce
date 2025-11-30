@@ -4,7 +4,10 @@ import { persist } from "zustand/middleware";
 const useUserStore = create(persist((set)=> {
   return {
     user: null,
-    saveUser: (user) => set({user}),
+    token: null,
+    saveUser: (user) => {
+      set({user,token: user.token})
+    },
     logoutUser: ()=> set({user: null})
   }
 },{

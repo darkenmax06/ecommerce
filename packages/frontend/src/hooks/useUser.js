@@ -5,106 +5,19 @@ import { Update,create } from "../services/userServices.js";
 import { useEffect } from "react";
 import {gerProvinceByName} from "../services/addressServices.js"
 import useUserStore from "./zustand/useUserStore.js";
-
-function cleanAndValidatePhoneNumber(rawNumber, showError) {
-    const cleanedNumber = rawNumber.replace(/[()\-\s]/g, '');
-
-    if (!/^\d+$/.test(cleanedNumber)) {
-        showError("El número de teléfono solo debe contener dígitos (aparte de guiones o paréntesis opcionales).");
-        return null;
-    }
-
-    if (cleanedNumber.length !== 10) {
-        showError("El número de teléfono debe tener exactamente 10 dígitos.");
-        return null;
-    }
-
-    return cleanedNumber;
-}
-
-function validateUser({ name, lastName, cityId, provinceId, street, password, phone, email, showError, confirmPassword }) {
-    
-    const validateText = (field, fieldName,MAX_LENGTH=50,MIN_LENGTH=2) => {
-        const trimmed = field.trim();
-        if (trimmed.length < MIN_LENGTH) {
-            showError(`El campo ${fieldName} debe tener al menos ${MIN_LENGTH} caracteres.`);
-            return false;
-        }
-        if (trimmed.length > MAX_LENGTH) {
-            showError(`El campo ${fieldName} no debe exceder los ${MAX_LENGTH} caracteres.`);
-            return false;
-        }
-        return true;
-    };
-    
-    if (!validateText(name, "Nombre")) return false;
-    if (!validateText(lastName, "Apellido")) return false;
-    if (!provinceId) {
-      showError(`El campo Provincia debe ser seleccionado.`);
-      return false;
-    }
-     if (!cityId) {
-      showError(`El campo localidad debe ser selecionado.`);
-      return false;
-    }
-    if (!validateText(street, "Calle",100,2)) return false;
-
-
-    const validatedNumber = cleanAndValidatePhoneNumber(phone, showError);
-    if (validatedNumber === null) {
-        return false;
-    }
- 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
-        showError("El formato del email no es válido.");
-        return false;
-    }
-
-    if (!validateText(password, "password",50,8)) return false;
-
-    if (password !== confirmPassword) {
-       showError(`las contraseñas no coinciden`);
-       return false;
-    }
-
-
-    return true;
-}
-
-function validateLogin({  password, email, showError }) {
-    
-    const validateText = (field, fieldName,MAX_LENGTH=50,MIN_LENGTH=2) => {
-        const trimmed = field.trim();
-        if (trimmed.length < MIN_LENGTH) {
-            showError(`El campo ${fieldName} debe tener al menos ${MIN_LENGTH} caracteres.`);
-            return false;
-        }
-        if (trimmed.length > MAX_LENGTH) {
-            showError(`El campo ${fieldName} no debe exceder los ${MAX_LENGTH} caracteres.`);
-            return false;
-        }
-        return true;
-    };
- 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
-        showError("El formato del email no es válido.");
-        return false;
-    }
-
-    if (!validateText(password, "password",50,8)) return false;
-
-    return true;
-}
+import validateUser from "../utils/validateUser.js";
+import validateLogin from "../utils/validateLogin.js";
 
 function useUser () {
   const user = useUserStore((state)=> state.user)
   const saveUser = useUserStore((state)=> state.saveUser)
   const logoutUser = useUserStore((state)=> state.logoutUser)
+  const token = useUserStore((state)=> state.token)
+
   const [loading,setLoading] = useState(false)
   const [shippingPrice,setShippingPrice] = useState(null)
   const [error,setError] = useState(null)
+
   const navigate = useNavigate()
 
   useEffect(()=> {
@@ -118,7 +31,7 @@ function useUser () {
 
       load()
     }
-  },[])
+  },[user])
 
   const showError = err => setError(err)
   const clearError = () => setError(null)
@@ -172,9 +85,6 @@ function useUser () {
     } finally {
       setLoading(false)
     }
-
-    // saveUser(u)
-    // navigate("/me")
   }
 
   const loginUser = async ({email,password}) => {
@@ -207,7 +117,8 @@ function useUser () {
     login,
     loading,
     shippingPrice,
-    clearError
+    clearError,
+    token
   }
 }
 

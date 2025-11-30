@@ -9,6 +9,7 @@ const Signin = lazy(()=> import("./Pages/Signin"))
 const Login = lazy(()=> import("./Pages/Login"))
 const Index = lazy(()=> import('./Pages/Index')) 
 const Product = lazy(()=> import('./Pages/Product'))
+const Contact = lazy(()=> import('./Pages/Contact'))
 const Products = lazy(()=> import('./Pages/Products'))
 const About = lazy(()=> import('./Pages/About'))
 const Me = lazy(()=> import('./Pages/Me'))
@@ -31,6 +32,7 @@ function App() {
 
         <Route path='/' element={ <Index/> } />
         <Route path='/about' element={<About/>} />
+        <Route path='/contact' element={<Contact/>} />
 
         <Route path='/login' element={<Login/>} />
         <Route path='/signin' element={<Signin/>} />

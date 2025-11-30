@@ -8,7 +8,7 @@ function useTags (all=true,getAll = true,targetId){
   const navigate = useNavigate()
   const [tags,setTags] = useState(null)
   const [tag,setTag] = useState(null)
-  const {user} = useUser()
+  const {token} = useUser()
   const [error,setError] = useState(null)
 
   const clearError = () => setError(null)
@@ -43,7 +43,6 @@ function useTags (all=true,getAll = true,targetId){
     if (!tag || tag == "") return showError("Debes proporcionar un titulo para la ategoria")
 
     try {
-      const {token} = user
       console.log(tag)
       await create(tag,token)
       navigate("/targets")
@@ -59,7 +58,6 @@ function useTags (all=true,getAll = true,targetId){
     if (!confirmation) return null
 
     try {
-      const token = user.token
       await remove(token,targetId)
 
       const filtredTags = tags.filter(res => res.targetId != targetId)
@@ -78,7 +76,6 @@ function useTags (all=true,getAll = true,targetId){
     if (target.length < 2) return showError("la categoria debe tener un minimo de 2 caracteres")
 
     try {
-      const {token} = user
       await update({target},targetId,token)
       navigate("/targets")
     } catch (err) {

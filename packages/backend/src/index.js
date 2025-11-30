@@ -14,6 +14,7 @@ import paymentsRoute from "./routes/paymentsRoute.js"
 import provincesRoutes from "./routes/provincesRoutes.js"
 import citiesRoutes from "./routes/citiesRoutes.js"
 import statusRoutes from "./routes/statusRoutes.js"
+import emailRoutes from "./routes/emailsRoutes.js"
 
 function server ({userModel,targetModel,productModel,commentModel,orderModel,provinceModel,cityModel,statusModel}){
   const app = express()
@@ -30,9 +31,7 @@ function server ({userModel,targetModel,productModel,commentModel,orderModel,pro
   app.use("/api/cities", citiesRoutes({cityModel}))
   app.use("/api/status", statusRoutes({statusModel,userModel}))
   app.use("/api/payments", paymentsRoute())
-  app.get("/hola", (req,res)=> {
-    res.json({message:'adios'})
-  })
+  app.use("/api/contact", emailRoutes())
 
   app.use(errorHandler)
   

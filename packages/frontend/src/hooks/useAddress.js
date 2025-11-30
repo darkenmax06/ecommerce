@@ -7,7 +7,7 @@ function useAddress ({province: p, city: c}){
   const [cities,setCities] = useState(null) 
   const [province,setProvince] = useState(null)
   const [provinces,setProvinces] = useState(null)
-  const {user} = useUser()
+  const {token} = useUser()
 
 
   useEffect(()=> {
@@ -61,7 +61,6 @@ function useAddress ({province: p, city: c}){
     if (shippingPrice < 1) return alert("El precio no puede ser negativo")
 
     try {
-      const {token} = user
       const result = await update({shippingPrice,provinceId,token})
       return result
     }catch(err){

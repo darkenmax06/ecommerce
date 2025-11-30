@@ -1,0 +1,133 @@
+.contact{
+  padding: 64px 16px;
+  font-family: "montserrat";
+  display: grid;
+  place-content: center;
+  min-height: calc(100dvh - 60px);
+}
+
+.contact__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.contact__title{
+  font-size: 40px;
+}
+
+.contact__container > p {
+  text-align: center;
+}
+
+.contact__methods{
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.contact__ways{
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__ways a{
+  padding: 16px 8px;
+  background-color: var(--white-1);
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 8px;
+  border-radius: 16px;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 10px 10px 0px #00000022;
+  font-size: 20px;
+}
+
+.contact__ways a span {
+  font-size: 16px;
+  filter: opacity(.6);
+  font-weight: 500;
+}
+
+.contact__ways a p{
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact__ways a svg{
+  width: 40px;
+  height: auto;
+}
+
+.contact__form{
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+  border-radius: 16px;
+  background-color: var(--white-1);
+  gap: 16px;
+  box-shadow: 20px 20px 0px 0px #00000022;
+}
+
+
+.form__title{
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.form__inputs-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__inputs-container input,
+.form__inputs-container textarea{
+  padding: 16px ;
+  width: 100%;
+  resize: none;
+  border-radius: 8px;
+  border: none;
+  font-family: "montserrat";
+  border: 3px solid var(--white-3);
+  font-weight: 500;
+  outline: none;
+}
+
+.form__inputs-container input:focus,
+.form__inputs-container textarea:focus{
+  border: 3px solid var(--primary);
+}
+
+.form__inputs-container textarea {
+  height: 150px;
+}
+
+.contact__form button{
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--white-1);
+  border: none;
+}

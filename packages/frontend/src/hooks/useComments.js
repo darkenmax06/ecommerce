@@ -7,7 +7,7 @@ import useUser from "./useUser";
 function useComments ({loadComments = true,productId} = {}) {
   const [comments,setComments] = useState(null)
   const [error,setError] = useState(null)
-  const {user} = useUser()
+  const {token} = useUser()
 
   const clearError = () => setError()
   const showError = err => setError(err)
@@ -17,7 +17,6 @@ function useComments ({loadComments = true,productId} = {}) {
       const load = async ()=> {
         try {
           const result = await getByProduct({productId})
-          console.log(result)
           setComments(result)
         } catch(err){
           console.log(err)
@@ -34,7 +33,6 @@ function useComments ({loadComments = true,productId} = {}) {
     clearError()
 
     try {
-      const {token} = user
       const result = await create({comment,token,productId})
       setComments([...comments,result])
       clearInput()

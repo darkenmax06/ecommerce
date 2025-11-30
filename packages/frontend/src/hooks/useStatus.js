@@ -5,12 +5,11 @@ import useUser from "./useUser"
 
 function useStatus (){
   const [status,setStatus] = useState(null)
-  const {user} = useUser()
+  const {token} = useUser()
 
   useEffect(()=> {
     const load = async () => {
       try {
-        const {token} = user
         const result = await getStatus({token})
         console.log(result)
         setStatus(result)
@@ -20,7 +19,7 @@ function useStatus (){
     }
 
     load()
-  },[user])
+  },[token])
 
   return {
     status
