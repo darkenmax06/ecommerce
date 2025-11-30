@@ -199,7 +199,8 @@ class Orders {
       user: {
         name: user.name,
         lastName: user.lastName,
-        phone: user.phone
+        phone: user.phone,
+        email: user.email
       }
     }
 

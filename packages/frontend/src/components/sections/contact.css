@@ -131,3 +131,10 @@
   color: var(--white-1);
   border: none;
 }
+
+
+@media (width <= 800px)  {
+  .contact__methods{
+    flex-direction: column;
+  }  
+}

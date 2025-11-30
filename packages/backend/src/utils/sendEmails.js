@@ -14,7 +14,7 @@ const oAuth2Client = new google.auth.OAuth2(
 
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-export async function sendMail({to="davidcctv2024@gmail.com",subject, content,replyTo}) {
+export async function sendMail({to="davidcctv2024@gmail.com",subject, content,replyTo="therealfatdv@gmail.com"}) {
   try {
     const { token } = await oAuth2Client.getAccessToken();
 

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import jwt from "jsonwebtoken";
 import { MercadoPagoConfig, Preference } from "mercadopago";
+import {sendMail} from "../utils/sendEmails.js"
 
 function OrderRoutes({ orderModel, userModel }) {
   const router = Router();
@@ -67,7 +68,9 @@ function OrderRoutes({ orderModel, userModel }) {
       const buyerId = details.metadata.buyerId;
       const products = JSON.parse(details.metadata.products);
 
-      await orderModel.createOrder({ buyerId, products });
+      const order = await orderModel.createOrder({ buyerId, products });
+      await sendMail({to: order.mail,content: `Tu orden No. ${order.orderId} Ha sido creada con exito. Para cualquier informacion adicional contactate con el vendedor.`,subject: `Orden No. ${order.orderId} Creada`})
+      await sendMail({to, content: `Tienes una nueva orden No. ${order.orderId} Entra a la plataforma y cambia el status para que el cliente este enterado de los cambios.`,subject: `Nueva orden de. ${order.user.name} ${order.user.lastName}`})
 
       return res.sendStatus(200);
     }
@@ -194,6 +197,7 @@ function OrderRoutes({ orderModel, userModel }) {
       if (user.type !== "seller") return next({name:"INVALID_CREDENTIALS"})
 
       const order = await orderModel.updateOrder({statusId,orderId})
+      await sendMail({to: order.mail,content: `Tu orden No. ${order.orderId} fue actualizada con el status ${order.status}. Para cualquier informacion adicional contactate con el vendedor.`,subject: `Orden No. ${order.orderId} actualizada`})
 
       res.json(order)
     }catch(err){
