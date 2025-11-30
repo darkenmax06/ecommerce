@@ -12,10 +12,10 @@ function useOrders ({loadOrders = true,orderId} ={}){
   const showError = err => setError(err)
 
   useEffect(()=> {
-    const {token} = user
-
     const loadOrder = async () => {
       try {
+        const {token} = user
+
         let result = null
         if (user.type == "buyer") result = await getOrders({token})
         else  result = await getAllorders({token})
@@ -24,14 +24,17 @@ function useOrders ({loadOrders = true,orderId} ={}){
     }
 
     const loadByOrderId = async () => {
+      const {token} = user
+
       try{
         const order = await getByOrderId({orderId,token})
         setOrder(order)
       }catch (err){console.log(err)}
     }
 
+
     if (loadOrders) loadOrder() 
-    else if (orderId) loadByOrderId
+    else if (orderId) loadByOrderId()
 
   },[user,orderId,loadOrders])
 
@@ -59,8 +62,6 @@ function useOrders ({loadOrders = true,orderId} ={}){
       showError(err)
     }
   }
-
-  console.log("order")
 
   return {
     orders,
