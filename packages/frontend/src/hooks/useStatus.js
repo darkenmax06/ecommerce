@@ -11,7 +11,6 @@ function useStatus (){
     const load = async () => {
       try {
         const result = await getStatus({token})
-        console.log(result)
         setStatus(result)
       } catch (err){
         console.log(err)

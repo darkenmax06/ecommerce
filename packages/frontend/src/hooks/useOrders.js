@@ -53,7 +53,9 @@ function useOrders ({loadOrders = true,orderId} ={}){
     clearError()
     setLoading(true)
 
-    console.log({products})
+    if (!user){
+      return alert("Debes estar logueado para poder comprar.")
+    }
 
     if (!products) {
       setLoading(true)
@@ -62,7 +64,6 @@ function useOrders ({loadOrders = true,orderId} ={}){
 
     try {
       const {token} = user
-      console.log(token)
       const result = await buyItem({products, token})
       setLoading(false)
       window.location.href = result.url;

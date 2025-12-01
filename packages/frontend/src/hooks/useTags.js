@@ -43,7 +43,6 @@ function useTags (all=true,getAll = true,targetId){
     if (!tag || tag == "") return showError("Debes proporcionar un titulo para la ategoria")
 
     try {
-      console.log(tag)
       await create(tag,token)
       navigate("/targets")
     } catch (err){
@@ -68,7 +67,6 @@ function useTags (all=true,getAll = true,targetId){
       alert(err)
     }
   }
-
   
   const editTags = async ({target,targetId}) => {
     clearError()

@@ -5,8 +5,6 @@ import useUser from "../hooks/useUser"
 function EditMePage () {
   const {user} = useUser()
 
-  console.log(user)
-
   return (
     <>
       {user

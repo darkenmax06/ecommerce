@@ -44,8 +44,6 @@ function CreateProductsForm ({productData}) {
     else editProducts(data)
   }
 
-  console.log(data)
-
   const Sign = ()=>  <> Crear Producto <MoveRight/> </> 
   const Edith = ()=>  <> Editar Producto <Edit/> </> 
 

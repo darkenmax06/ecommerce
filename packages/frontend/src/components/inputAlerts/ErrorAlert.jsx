@@ -3,8 +3,6 @@ import { CircleAlert } from "lucide-react";
 
 
 function ErrorAlert ({error,clearError}){
-
-  console.log({error})
   return (
     <InputAlert 
       color="red" 
