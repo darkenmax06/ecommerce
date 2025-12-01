@@ -1,5 +1,4 @@
 import { useRef, useState } from "react"
-import Layout from "../components/elements/Layout"
 import useAddress from "../hooks/useAddress"
 import { Edit2 } from "lucide-react"
 import "./shipping.css"
@@ -36,7 +35,6 @@ function Shipping () {
   const {provinces,updatePrice} = useAddress({province: null,city: null})
 
   return (
-    <Layout>
       <div className="shipping">
         <div className="shipping__container">
           <h2 className="shipping__title">
@@ -50,7 +48,6 @@ function Shipping () {
           </div>
         </div>
       </div>
-    </Layout>
   )
 }
 

@@ -13,6 +13,7 @@ import ButtonLoader from "../loaders/ButtonLoader"
 function Product ({imgUris,title,description,price,productId,target,quantity}){
   const {comments} = useComments({productId})
   const {addToCart,isAdded} = useCart()
+
   const {createOrder,loading} = useOrders({loadOrders: false})
   const {user,shippingPrice} = useUser()
 

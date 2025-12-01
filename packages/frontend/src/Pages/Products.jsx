@@ -1,13 +1,10 @@
-import Layout from "../components/elements/Layout"
-import Ecommerce from "../components/sections/Ecommerce"
+import EcommerceComponent from "../components/sections/Ecommerce"
 
-function Products (){
+function ProductsPage (){
 
   return (
-    <Layout>
-      <Ecommerce/>
-    </Layout>
+      <EcommerceComponent/>
   )
 }
 
-export default Products
+export default ProductsPage

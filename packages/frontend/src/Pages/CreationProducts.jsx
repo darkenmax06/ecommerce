@@ -1,14 +1,10 @@
 import Layout from "../components/elements/Layout"
-import CreateProductsForm from "../components/forms/CreateProductForm"
-import SigninForm from "../components/forms/SigninForm"
-import useUser from "../hooks/useUser"
+import CreateProductsFormComponent from "../components/forms/CreateProductForm"
 
-function EditMe () {
+function CreationProductsPage () {
   return (
-  <Layout>
-    <CreateProductsForm  />
-  </Layout>
+    <CreateProductsFormComponent  />
   )
 }
 
-export default EditMe
+export default CreationProductsPage

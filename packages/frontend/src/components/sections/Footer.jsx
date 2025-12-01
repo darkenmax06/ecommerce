@@ -38,7 +38,7 @@ function Footer (){
         </nav>
 
         <div className="footer__info">
-          <img src="/Logo.png" className="footer__logo" />
+          <img src="/logow.png" className="footer__logo" />
           <p>
             Redefinimos el lujo urbano; Una fusion de elegancia y actitud. No sigues tendencias, las creas.
           </p>

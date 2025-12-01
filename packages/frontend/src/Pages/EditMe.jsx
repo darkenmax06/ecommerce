@@ -1,17 +1,20 @@
-import Layout from "../components/elements/Layout"
-import SigninForm from "../components/forms/SigninForm"
+import SigninFormComponent from "../components/forms/SigninForm"
+import NotFound from "../components/notFound/NotFound"
 import useUser from "../hooks/useUser"
 
-function EditMe () {
+function EditMePage () {
   const {user} = useUser()
 
   console.log(user)
 
   return (
-  <Layout>
-    {user && <SigninForm userData={user} />}
-  </Layout>
+    <>
+      {user
+        ? <SigninFormComponent userData={user} />
+        : <NotFound comment="No hay un usuario para realizar esta accion" />
+      }
+    </>
   )
 }
 
-export default EditMe
+export default EditMePage

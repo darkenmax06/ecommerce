@@ -1,12 +1,9 @@
-import Layout from "../components/elements/Layout"
-import A from "../components/sections/About"
+import AboutComponent from "../components/sections/About"
 
-function About () {
+function AboutPage () {
   return (
-  <Layout>
-    <A/>
-  </Layout>
+    <AboutComponent/>
   )
 }
 
-export default About
+export default AboutPage

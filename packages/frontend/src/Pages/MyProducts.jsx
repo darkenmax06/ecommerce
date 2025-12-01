@@ -1,13 +1,10 @@
-import Layout from "../components/elements/Layout"
-import MyProducts from "../components/sections/Myproducts"
+import MyProductsComponent from "../components/sections/Myproducts"
 
-function EditMe () {
+function MyProductsPage () {
 
   return (
-  <Layout>
-    <MyProducts title="Mis productos" type="seller" />
-  </Layout>
+    <MyProductsComponent title="Mis productos" type="seller" />
   )
 }
 
-export default EditMe
+export default MyProductsPage

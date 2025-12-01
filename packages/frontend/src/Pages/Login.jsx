@@ -1,13 +1,10 @@
-import Layout from "../components/elements/Layout"
-import LoginForm from "../components/forms/LoginForm"
+import LoginFormComponent from "../components/forms/LoginForm"
 
 
-function Login () {
+function LoginPage () {
   return (
-    <Layout>
-      <LoginForm/>
-    </Layout>
+      <LoginFormComponent/>
   )
 }
 
-export default Login
+export default LoginPage

@@ -1,14 +1,13 @@
-import Layout from "../components/elements/Layout"
 import Hero from "../components/sections/Hero"
 import Ecommerce from "../components/sections/Ecommerce"
 
-function Index () {
+function IndexPage () {
   return (
-  <Layout>
-    <Hero/>
-    <Ecommerce/>
-  </Layout>
+    <>
+      <Hero/>
+      <Ecommerce/>
+    </>
   )
 }
 
-export default Index
+export default IndexPage

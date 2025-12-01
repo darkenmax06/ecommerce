@@ -1,4 +1,3 @@
-import Layout from "../components/elements/Layout"
 import useOrders from "../hooks/useOrders"
 import "./order.css"
 import { useParams } from "react-router-dom"
@@ -43,7 +42,6 @@ function Index () {
   }
 
   return (
-  <Layout>
     <div className="orders">
       <div className="orders__container">
         <h2 className="orders__title">
@@ -79,7 +77,6 @@ function Index () {
 
       </div>
     </div>
-  </Layout>
   )
 }
 

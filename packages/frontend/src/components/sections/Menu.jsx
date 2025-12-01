@@ -16,6 +16,8 @@ function Menu (){
         cart: false
     })
 
+    console.log(showMenu)
+
     const handleToggle = () => setIsToggle(!isToggle)
 
     return (

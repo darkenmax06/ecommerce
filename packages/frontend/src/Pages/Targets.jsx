@@ -1,13 +1,10 @@
-import Layout from "../components/elements/Layout"
-import Targets from "../components/sections/Targets"
+import TargetsComponent from "../components/sections/Targets"
 
 
-function TargetsC (){
+function TargetsPage (){
   return (
-    <Layout>
-      <Targets/>
-    </Layout>
+      <TargetsComponent/>
   )
 }
 
-export default TargetsC
+export default TargetsPage

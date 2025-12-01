@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { roundDecimals } from "../utils/roundDecimals"
 import useUser from "./useUser"
 import { gerProvinceByName } from "../services/addressServices"
@@ -14,9 +14,9 @@ function useCart (){
   const [shippingPrice,setShippingPrice] = useState(null)
   const {user} = useUser()
 
-  const addToCart = ({productId,title,imgUri,price,max}) => {
+  const addToCart = useCallback(({productId,title,imgUri,price,max}) => {
     addItem({productId,title,imgUri,price,max})
-  }
+  },[addItem])
 
   useEffect(()=> {
     if (user) {
@@ -31,15 +31,16 @@ function useCart (){
     }
   },[user])
 
-  const isAdded = (id) => {
+  const isAdded = useCallback(
+    (id) => {
     if (!cart) return false
     else if (cart.length < 1) return false
 
     const findIndex = cart.findIndex(res => res.productId == id)
     return findIndex >= 0
-  }
+  },[cart])
 
-  const totalToPay = useMemo(()=> {
+  const payPrices = useMemo(()=> {
     if (!cart) return 0
     const value = cart.reduce((acc,currentValue)=> {
       const {price,quantity} = currentValue
@@ -47,14 +48,26 @@ function useCart (){
       return value + acc
     },0)
 
-    return roundDecimals({number: value})
-  },[cart])
+    const subTotal = roundDecimals({number: value})
+    const total = user 
+    ? roundDecimals({number:(subTotal + shippingPrice)}) 
+    : subTotal
+
+
+    return {
+      subTotal,
+      total
+    }
+  },[cart,user,shippingPrice])
+
+
+
 
   return {
     cart,
     addToCart,
     isAdded,
-    totalToPay,
+    payPrices,
     decreaseQuantity,
     increaseQuantity,
     shippingPrice

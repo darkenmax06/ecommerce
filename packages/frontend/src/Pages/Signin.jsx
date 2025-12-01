@@ -1,12 +1,9 @@
-import Layout from "../components/elements/Layout"
-import SigninForm from "../components/forms/SigninForm"
+import SigninFormComponent from "../components/forms/SigninForm"
 
-function Signin () {
+function SigninPage () {
   return (
-    <Layout>
-      <SigninForm/>
-    </Layout>
+      <SigninFormComponent/>
   )
 }
 
-export default Signin
+export default SigninPage

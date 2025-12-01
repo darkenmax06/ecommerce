@@ -1,18 +1,21 @@
 import { useParams } from "react-router-dom"
 import Layout from "../components/elements/Layout"
 import CreateProductsForm from "../components/forms/CreateProductForm"
-import MyProducts from "../components/sections/Myproducts"
 import useProducts from "../hooks/useProducts"
+import NotFound from "../components/notFound/NotFound"
+import MainLoader from "../components/loaders/MainLoader"
 
-function EditProducts () {
+function EditProductsPage () {
   const {productId} = useParams()
   const {product} = useProducts({productId})
 
   return (
   <Layout>
-    {product && <CreateProductsForm productData={product} />}
+    {product
+    ? <CreateProductsForm productData={product} />
+    : <MainLoader/>}
   </Layout>
   )
 }
 
-export default EditProducts
+export default EditProductsPage

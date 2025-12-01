@@ -4,9 +4,6 @@ import "./order.css"
 import { Link } from "react-router-dom"
 
 function Order ({orderId,creationDate,status}) {
-
-  console.log(orderId)
-
   const time = new Date(creationDate).toLocaleTimeString()
   const date = new Date(creationDate).toLocaleDateString()
 
@@ -25,7 +22,6 @@ function Index () {
   const {orders} = useOrders()
 
   return (
-  <Layout>
     <div className="orders">
       <div className="orders__container">
         <h2 className="orders__title">
@@ -37,7 +33,6 @@ function Index () {
         </div>
       </div>
     </div>
-  </Layout>
   )
 }
 

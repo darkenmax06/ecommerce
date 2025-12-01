@@ -1,12 +1,9 @@
-import Layout from "../components/elements/Layout";
-import CreateTargetForm from "../components/forms/CreateTargetForm";
+import CreateTargetFormComponent from "../components/forms/CreateTargetForm";
 
-function CreateTarget () {
+function CreateTargetPage () {
   return (
-    <Layout>
-      <CreateTargetForm/>
-    </Layout>
+    <CreateTargetFormComponent/>
   )
 }
 
-export default CreateTarget
+export default CreateTargetPage

@@ -1,13 +1,10 @@
-import Layout from "../components/elements/Layout"
-import Me from "../components/sections/Me"
+import MeComponent from "../components/sections/Me"
 
 
-function Login () {
+function MePage () {
   return (
-    <Layout>
-      <Me/>
-    </Layout>
+      <MeComponent/>
   )
 }
 
-export default Login
+export default MePage
