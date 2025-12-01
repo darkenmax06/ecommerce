@@ -51,7 +51,9 @@ function useOrders ({loadOrders = true,orderId} ={}){
 
   const createOrder = async (products) => {
     clearError()
-    setLoading(false)
+    setLoading(true)
+
+    console.log({products})
 
     if (!products) {
       setLoading(true)
@@ -60,12 +62,13 @@ function useOrders ({loadOrders = true,orderId} ={}){
 
     try {
       const {token} = user
+      console.log(token)
       const result = await buyItem({products, token})
-      setLoading(true)
+      setLoading(false)
       window.location.href = result.url;
     } catch (err) {
       showError(err)
-      setLoading(true)
+      setLoading(false)
     }
   }
 

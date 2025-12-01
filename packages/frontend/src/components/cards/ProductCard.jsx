@@ -2,6 +2,7 @@ import { CheckCheck, MinusIcon, ShoppingCart } from "lucide-react"
 import "./productCard.css"
 import useCart from "../../hooks/useCart"
 import { useNavigate } from "react-router-dom"
+import addCommas from "../../utils/addCommas"
 
 
 function ProductCard ({imgUri,title,target,content,price,productId,quantity}){
@@ -26,7 +27,7 @@ function ProductCard ({imgUri,title,target,content,price,productId,quantity}){
       <div className="pc__textbox">
         <h4 className="pc__title">{title}</h4>
         <div className="pc__info">
-          <span className="pc__price">ARG$ {price}</span>
+          <span className="pc__price">ARG$ {addCommas(price)}</span>
           <span className="pc__price">{quantity} uds</span>
         </div>
         <p>{content}</p> 

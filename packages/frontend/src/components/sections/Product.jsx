@@ -9,6 +9,7 @@ import Comment from "../elements/Comment"
 import LoginMessage from "../messages/LoginMessage"
 import useComments from "../../hooks/useComments"
 import ButtonLoader from "../loaders/ButtonLoader"
+import addCommas from "../../utils/addCommas"
 
 function Product ({imgUris,title,description,price,productId,target,quantity}){
   const {comments} = useComments({productId})
@@ -39,7 +40,7 @@ function Product ({imgUris,title,description,price,productId,target,quantity}){
         <div className="modal__textbox">
           <h2 className="modal__title" >{title}</h2>
           <div className="modal__info">
-            <span className="modal__price" >ARG$ {price}</span>
+            <span className="modal__price" >ARG$ {addCommas(price)}</span>
             <span className="modal__price" >{quantity} Ud disponibles</span>
           </div>
           <span className="modal__target" >{target}</span>

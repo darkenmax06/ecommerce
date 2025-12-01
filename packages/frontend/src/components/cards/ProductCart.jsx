@@ -2,6 +2,7 @@ import {  Minus, Plus} from "lucide-react"
 import "./productCart.css"
 import useCart from "../../hooks/useCart"
 import { roundDecimals } from "../../utils/roundDecimals"
+import addCommas from "../../utils/addCommas"
 
 function ProductCart ({imgUri,title,target,price,quantity,productId}){
   const {decreaseQuantity,increaseQuantity} = useCart()
@@ -21,7 +22,7 @@ function ProductCart ({imgUri,title,target,price,quantity,productId}){
         <h4 className="pc__title">{title}</h4>
         <div className="pc__row">
           <span className="pc__price">Precio unitario:</span>
-          <span className="pc__price">{price}</span>
+          <span className="pc__price">{addCommas(price)}</span>
         </div>
         <div className="pc__row">
           <span className="pc__price">Cantidad:</span>
@@ -29,7 +30,7 @@ function ProductCart ({imgUri,title,target,price,quantity,productId}){
         </div>
         <div className="pc__row">
           <span className="pc__price">Total:</span>
-          <span className="pc__price">{total}</span>
+          <span className="pc__price">{addCommas(total)}</span>
         </div>
         <div className="pc__actions">
           <button className="pc__action" onClick={handleIncrease} >

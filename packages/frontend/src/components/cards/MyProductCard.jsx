@@ -1,7 +1,7 @@
 import { Edit, Trash2 } from "lucide-react"
 import "./productCard.css"
 import { useNavigate } from "react-router-dom"
-
+import addCommas from "../../utils/addCommas"
 
 function MyProductCard ({imgUri,title,target,content,price,productId,deleteProduct}){
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ function MyProductCard ({imgUri,title,target,content,price,productId,deleteProdu
       </picture>
       <div className="pc__textbox">
         <h4 className="pc__title">{title}</h4>
-        <span className="pc__price">ARG$ {price}</span>
+        <span className="pc__price">ARG$ {addCommas(price)}</span>
         <p>{content}</p> 
         <div className="pc__actions">
           <button className="pc__action" onClick={handleEdit} >

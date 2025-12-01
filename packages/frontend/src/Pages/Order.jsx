@@ -6,6 +6,7 @@ import MainLoader from "../components/loaders/MainLoader"
 import useUser from "../hooks/useUser"
 import Select from "../components/forms/Select"
 import useStatus from "../hooks/useStatus"
+import addCommas from "../utils/addCommas"
 
 function AdminView ({user}) {
   return (
@@ -66,12 +67,12 @@ function Index () {
         </div>
 
       
-        <h3>Sub total: ARG${productPrice} </h3>
+        <h3>Sub total: ARG${addCommas(productPrice)} </h3>
         <h3>
-          envio: ARG${order.shippingPrice}
+          envio: ARG${addCommas(order.shippingPrice)}
         </h3>
         <h3 className="total" >
-          total: ARG${total}
+          total: ARG${addCommas(total)}
         </h3>
 
 
