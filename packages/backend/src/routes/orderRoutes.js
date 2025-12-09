@@ -74,6 +74,8 @@ function OrderRoutes({ orderModel, userModel }) {
 
     const details = await paymentClient.get({ id: payment.data.id });
 
+    console.log(details)
+
     if (details.status === "approved") {
 
       const buyerId = details.metadata.buyerId;
