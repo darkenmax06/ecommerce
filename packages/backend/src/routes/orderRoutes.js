@@ -85,8 +85,8 @@ function OrderRoutes({ orderModel, userModel }) {
       console.log({buyer_id})
 
       const order = await orderModel.createOrder({ buyerId: buyer_id, products });
-      await sendMail({to: order.mail,content: `Tu orden No. ${order.orderId} Ha sido creada con exito. Para cualquier informacion adicional contactate con el vendedor.`,subject: `Orden No. ${order.orderId} Creada`})
-      await sendMail({to, content: `Tienes una nueva orden No. ${order.orderId} Entra a la plataforma y cambia el status para que el cliente este enterado de los cambios.`,subject: `Nueva orden de. ${order.user.name} ${order.user.lastName}`})
+      await sendMail({to: order.user.email,content: `Tu orden No. ${order.orderId} Ha sido creada con exito. Para cualquier informacion adicional contactate con el vendedor.`,subject: `Orden No. ${order.orderId} Creada`})
+      await sendMail({ content: `Tienes una nueva orden No. ${order.orderId} Entra a la plataforma y cambia el status para que el cliente este enterado de los cambios.`,subject: `Nueva orden de. ${order.user.name} ${order.user.lastName}`})
 
       return res.sendStatus(200);
     }
