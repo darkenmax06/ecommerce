@@ -7,6 +7,14 @@ function OrderRoutes({ orderModel, userModel }) {
   const router = Router();
   const {SECRET_KEY} = process.env
 
+  
+  const {accessToken,success,failure} = process.env.NODE_ENV == "development"
+  ? {accessToken: process.env.DEV_ACCESS_TOKEN,success: process.env.DEV_SUCCESS, failure: process.env.DEV_FAILURE}
+  : {accessToken: process.env.PROD_ACCESS_TOKEN,success: process.env.PROD_SUCCESS, failure: process.env.PROD_FAILURE}
+
+  const client = new MercadoPagoConfig({accessToken});
+
+
   router.get("/" ,async (req,res,next) => {
     const {authorization} = req.headers
 
@@ -63,7 +71,7 @@ function OrderRoutes({ orderModel, userModel }) {
 
     if (payment.type !== "payment") return res.sendStatus(200);
 
-    const details = await mp.payment.get({ id: payment.data.id });
+    const details = await client.payment.get({ id: payment.data.id });
 
     if (details.status === "approved") {
 
@@ -114,10 +122,6 @@ function OrderRoutes({ orderModel, userModel }) {
     const {products} = req.body
     const {authorization} = req.headers
 
-    const {accessToken,success,failure} = process.env.NODE_ENV == "development"
-    ? {accessToken: process.env.DEV_ACCESS_TOKEN,success: process.env.DEV_SUCCESS, failure: process.env.DEV_FAILURE}
-    : {accessToken: process.env.PROD_ACCESS_TOKEN,success: process.env.PROD_SUCCESS, failure: process.env.PROD_FAILURE}
-
     let token = null
     if (authorization && authorization.toLowerCase("").startsWith("bearer")){
       token = authorization.split(" ")[1]
@@ -134,7 +138,6 @@ function OrderRoutes({ orderModel, userModel }) {
       const Order = await orderModel.createOrder({buyerId: verify.userId,products})
       await orderModel.deleteOrder(Order.orderId)
       // Integracion con mercado pago!
-      const client = new MercadoPagoConfig({accessToken});
       const preference = new Preference(client);
 
       const productsToSend = Order.products.map(res => ({
