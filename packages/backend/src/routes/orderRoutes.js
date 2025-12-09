@@ -14,6 +14,7 @@ function OrderRoutes({ orderModel, userModel }) {
 
   const client = new MercadoPagoConfig({accessToken});
 
+  const paymentClient = new Payment(client);
 
   router.get("/" ,async (req,res,next) => {
     const {authorization} = req.headers
@@ -71,7 +72,7 @@ function OrderRoutes({ orderModel, userModel }) {
 
     if (payment.type !== "payment") return res.sendStatus(200);
 
-    const details = await client.payment.get({ id: payment.data.id });
+    const details = await paymentClient.get({ id: payment.data.id });
 
     if (details.status === "approved") {
 
