@@ -5,7 +5,7 @@ class Orders {
 
   getAll = async () => {
     const [orders] = await this.connection.query(`
-      SELECT orderId, status, name, lastName, phone, o.creationDate  FROM Orders o INNER JOIN 
+      SELECT orderId, status, name, lastName, phone, o.creationDate, email  FROM Orders o INNER JOIN 
       Status s ON s.statusId = o.statusId AND o.statusId != 3
       INNER JOIN Users u ON u.userId = o.buyerId`)
 
@@ -17,7 +17,8 @@ class Orders {
         user: {
           name: res.name,
           lastName: res.lastName,
-          phone: res.phone
+          phone: res.phone,
+          email: res.email
         }
       }
 
@@ -63,7 +64,8 @@ class Orders {
       user: {
         name: user.name,
         lastName: user.lastName,
-        phone: user.phone
+        phone: user.phone,
+        email: user.email
       }
     }
 
@@ -76,8 +78,6 @@ class Orders {
       Status s ON s.statusId = o.statusId
       INNER JOIN parsed_user u ON u.userId = BIN_TO_UUID(o.buyerID) AND o.buyerId = UUID_TO_BIN(?)`,[userId])
 
-      console.log(orders)
-
     const orderToSend = orders.map (res => {
       const orderToSend = {
         orderId: res.orderId,
@@ -86,7 +86,8 @@ class Orders {
         user: {
           name: res.name,
           lastName: res.lastName,
-          phone: res.phone
+          phone: res.phone,
+          email: res.email
         }
       }
 
@@ -150,7 +151,8 @@ class Orders {
       user: {
         name: user.name,
         lastName: user.lastName,
-        phone: user.phone
+        phone: user.phone,
+        email: user.email
       }
     }
 
