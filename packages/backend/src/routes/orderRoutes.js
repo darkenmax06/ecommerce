@@ -1,6 +1,6 @@
 import { Router } from "express";
 import jwt from "jsonwebtoken";
-import { MercadoPagoConfig, Preference } from "mercadopago";
+import { MercadoPagoConfig, Preference, Payment} from "mercadopago";
 import {sendMail} from "../utils/sendEmails.js"
 
 function OrderRoutes({ orderModel, userModel }) {
