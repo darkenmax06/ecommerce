@@ -59,6 +59,8 @@ function OrderRoutes({ orderModel, userModel }) {
   router.post("/webhook-mp", async (req, res) => {
     const payment = req.body;
 
+    console.log("PAGO")
+
     if (payment.type !== "payment") return res.sendStatus(200);
 
     const details = await mp.payment.get({ id: payment.data.id });
